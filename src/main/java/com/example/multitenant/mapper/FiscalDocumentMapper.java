@@ -12,4 +12,5 @@ public interface FiscalDocumentMapper {
     FiscalDocument toEntity(FiscalDocumentDTO dto);
     FiscalDocumentDTO toDTO(FiscalDocument entity);
 
+
 }

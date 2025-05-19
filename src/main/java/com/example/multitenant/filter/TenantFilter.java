@@ -4,6 +4,7 @@ package com.example.multitenant.filter;
 import com.example.multitenant.context.TenantContext;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Component;
@@ -17,7 +18,7 @@ public class TenantFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
-        String cnpj = request.getHeader("X-Tenant-CNPJ"); // Vamos usar um header para identificar o cliente
+        String cnpj = request.getHeader("X-Tenant-CNPJ");
         if (cnpj != null && !cnpj.isEmpty()) {
             TenantContext.setCurrentTenant(cnpj);
             try {

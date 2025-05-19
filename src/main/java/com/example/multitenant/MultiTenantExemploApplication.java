@@ -14,12 +14,6 @@ public class MultiTenantExemploApplication {
 
 	}
 
-	@Bean
-	public FilterRegistrationBean<TenantFilter> tenantFilterRegistrationBean(TenantFilter tenantFilter) {
-		FilterRegistrationBean<TenantFilter> registrationBean = new FilterRegistrationBean<>();
-		registrationBean.setFilter(tenantFilter);
-		registrationBean.addUrlPatterns("/upload"); // Aplica o filtro apenas na rota de upload
-		return registrationBean;
-	}
+
 
 }
